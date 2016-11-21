@@ -1,13 +1,11 @@
 package com.example.emrebabur.wordcounter.pojo;
 
-import android.support.annotation.Nullable;
-
 import java.io.Serializable;
 
 /**
  * Created by emre.babur on 18.11.2016.
  */
-public class WordCountWithPrimeFlag implements Comparable<WordCountWithPrimeFlag>, Serializable {
+public class WordCount implements Comparable<WordCount>, Serializable {
     private String word;
     private Integer count;
     public enum Primality {
@@ -15,15 +13,15 @@ public class WordCountWithPrimeFlag implements Comparable<WordCountWithPrimeFlag
     }
 
     @Override
-    public int compareTo(WordCountWithPrimeFlag wordCountWithPrimeFlag) {
-        return -1 * this.count.compareTo(wordCountWithPrimeFlag.count);
+    public int compareTo(WordCount wordCount) {
+        return -1 * this.count.compareTo(wordCount.count);
     }
 
 
 
     private Primality primality;
 
-    public WordCountWithPrimeFlag(String word, Integer count) {
+    public WordCount(String word, Integer count) {
         this.word = word;
         this.count = count;
         this.primality = Primality.NOT_CALCULATED;

@@ -4,13 +4,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.widget.Toast;
 
 import com.example.emrebabur.wordcounter.R;
 import com.example.emrebabur.wordcounter.WordCounterApplication;
 import com.example.emrebabur.wordcounter.model.DataManager;
 import com.example.emrebabur.wordcounter.pojo.WordCountPrimalityReceivedEvent;
-import com.example.emrebabur.wordcounter.pojo.WordCountWithPrimeFlag;
+import com.example.emrebabur.wordcounter.pojo.WordCount;
 import com.example.emrebabur.wordcounter.pojo.WordCountsReceivedEvent;
 import com.example.emrebabur.wordcounter.util.Constants;
 
@@ -19,7 +18,6 @@ import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import javax.inject.Inject;
 
@@ -31,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     private LinearLayoutManager layoutManager;
     private WordCountsAdapter wordCountsAdapter;
-    private ArrayList<WordCountWithPrimeFlag> wordCounts;
+    private ArrayList<WordCount> wordCounts;
     private final String DATA_TAG = "data";
     @Inject
     public DataManager dataManager;
@@ -44,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
         layoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(layoutManager);
         if(savedInstanceState == null) {
-            wordCounts = new ArrayList<WordCountWithPrimeFlag>();
+            wordCounts = new ArrayList<WordCount>();
             setRecyclerViewAdapter();
         }
         ((WordCounterApplication) getApplication()).getDataManagerComponent().inject(this);
@@ -53,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onRestoreInstanceState(Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
-        wordCounts = (ArrayList<WordCountWithPrimeFlag>) savedInstanceState.getSerializable(DATA_TAG);
+        wordCounts = (ArrayList<WordCount>) savedInstanceState.getSerializable(DATA_TAG);
         setRecyclerViewAdapter();
     }
 

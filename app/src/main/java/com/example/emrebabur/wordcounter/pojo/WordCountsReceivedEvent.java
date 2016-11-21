@@ -7,13 +7,13 @@ import java.util.List;
  */
 public class WordCountsReceivedEvent {
 
-    private List<WordCountWithPrimeFlag> data;
+    private List<WordCount> data;
 
-    public WordCountsReceivedEvent(List<WordCountWithPrimeFlag> data) {
+    public WordCountsReceivedEvent(List<WordCount> data) {
         this.data = data;
     }
 
-    public List<WordCountWithPrimeFlag> getData() {
+    public List<WordCount> getData() {
         return data;
     }
 }

@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.emrebabur.wordcounter.R;
-import com.example.emrebabur.wordcounter.pojo.WordCountWithPrimeFlag;
+import com.example.emrebabur.wordcounter.pojo.WordCount;
 
 import java.util.List;
 
@@ -21,9 +21,9 @@ import butterknife.ButterKnife;
  */
 public class WordCountsAdapter extends RecyclerView.Adapter<WordCountsAdapter.WordViewHolder>{
 
-    private List<WordCountWithPrimeFlag> wordCounts;
+    private List<WordCount> wordCounts;
 
-    public WordCountsAdapter(List<WordCountWithPrimeFlag> wordCounts) {
+    public WordCountsAdapter(List<WordCount> wordCounts) {
         this.wordCounts = wordCounts;
     }
 

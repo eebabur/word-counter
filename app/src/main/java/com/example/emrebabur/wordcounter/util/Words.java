@@ -1,6 +1,6 @@
 package com.example.emrebabur.wordcounter.util;
 
-import com.example.emrebabur.wordcounter.pojo.WordCountWithPrimeFlag;
+import com.example.emrebabur.wordcounter.pojo.WordCount;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -33,10 +33,10 @@ public class Words {
         return wordCountMap;
     }
 
-    public static List<WordCountWithPrimeFlag> convertMapToList(Map<String, Integer> wordCountMap) {
-        List<WordCountWithPrimeFlag> wordCountList = new ArrayList<WordCountWithPrimeFlag>();
+    public static List<WordCount> convertMapToList(Map<String, Integer> wordCountMap) {
+        List<WordCount> wordCountList = new ArrayList<WordCount>();
         for(String word: wordCountMap.keySet()) {
-            wordCountList.add(new WordCountWithPrimeFlag(word, wordCountMap.get(word)));
+            wordCountList.add(new WordCount(word, wordCountMap.get(word)));
         }
         return wordCountList;
     }
